@@ -1,0 +1,9 @@
+# docker-compose.yml
+
+version: "1.0"
+services:
+  firmdashboard:
+    image: hypoflex/firmdashboard:latest
+    command: "npm run migrate && npm start"
+    ports:
+      - '3000:3000'
