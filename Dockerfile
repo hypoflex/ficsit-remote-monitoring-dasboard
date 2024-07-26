@@ -1,8 +1,9 @@
-FROM node:18.16.0-alpine3.17
-RUN mkdir -p /opt/app
-WORKDIR /opt/app
+FROM docker.io/node:18-alpine
+RUN mkdir -p /app
+WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY / .
-EXPOSE 3000
+ENV PORT 3000
+EXPOSE $PORT
 CMD [ "npm", "start"]
